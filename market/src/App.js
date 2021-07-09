@@ -2,7 +2,11 @@ import { useDispatch } from 'react-redux';
 import Navigation from './components/navigation';
 import Routes from './Routes';
 import { useEffect } from 'react';
-import { autoLoginAction } from './redux/actions';
+import {
+  autoFetchUsers,
+  autoImportDataAction,
+  autoLoginAction,
+} from './redux/actions';
 import './App.css';
 
 function App() {
@@ -10,6 +14,8 @@ function App() {
 
   useEffect(() => {
     dispatch(autoLoginAction());
+    dispatch(autoImportDataAction());
+    dispatch(autoFetchUsers());
   }, []);
   return (
     <div>

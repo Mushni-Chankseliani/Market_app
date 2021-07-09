@@ -1,4 +1,4 @@
-import { AUTH_TOKEN } from '../utils/constants';
+import { AUTH_TOKEN, AUTH_USER } from '../utils/constants';
 
 export const login = async (credentials) => {
   try {
@@ -38,4 +38,5 @@ export const register = async (credentials) => {
 
 export const logOut = async () => {
   localStorage.removeItem(AUTH_TOKEN);
+  localStorage.removeItem(AUTH_USER);
 };
