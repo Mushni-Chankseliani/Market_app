@@ -1,0 +1,8 @@
+.active-class {
+  border-bottom: 2px solid lightblue !important;
+  font-weight: 500;
+}
+
+.active-class:hover {
+  color: black;
+}
