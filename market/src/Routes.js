@@ -6,7 +6,8 @@ import HomePage from './pages/home-page';
 import * as routes from './utils/routePaths';
 const AuthPage = React.lazy(() => import('./pages/auth'));
 const ProfilePage = React.lazy(() => import('./pages/profile-page'));
-const AddProductPage = React.lazy(() => import('./pages/product-page'));
+const MyProductPage = React.lazy(() => import('./pages/product-page'));
+const FavouritesPage = React.lazy(() => import('./pages/favourites-page'));
 
 function Routes() {
   return (
@@ -15,8 +16,11 @@ function Routes() {
         <Route path={routes.PROFILE_PATH}>
           <ProfilePage />
         </Route>
-        <Route path={routes.ADD_PRODUCT}>
-          <AddProductPage />
+        <Route path={routes.MY_PRODUCTS_PATH}>
+          <MyProductPage />
+        </Route>
+        <Route path={routes.FAVOURITES_PATH}>
+          <FavouritesPage />
         </Route>
         <Route path={routes.AUTH_PATH}>
           <AuthPage />

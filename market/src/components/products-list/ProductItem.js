@@ -19,7 +19,7 @@ function ProductListItem({ item }) {
         <p className="card-text">{item.description}</p>
         {item.userId === userId && (
           <a className="btn btn-danger" onClick={() => removeProduct(item.id)}>
-            remove product
+            Remove Product
           </a>
         )}
 
@@ -28,14 +28,16 @@ function ProductListItem({ item }) {
             <button
               className="btn btn-warning"
               onClick={() => removeFromFavourites(item.id, userId)}>
-              Remove from favs
+              Remove From Favourites
             </button>
           ) : (
-            <button
-              className="btn btn-success"
-              onClick={() => addInFavourites(item.id, userId)}>
-              Add In Favourites
-            </button>
+            Boolean(userId) && (
+              <button
+                className="btn btn-success"
+                onClick={() => addInFavourites(item.id, userId)}>
+                Add In Favourites
+              </button>
+            )
           ))}
       </div>
     </div>

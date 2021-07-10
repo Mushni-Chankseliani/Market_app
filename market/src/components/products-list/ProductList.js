@@ -1,20 +1,21 @@
 import { useContext } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { ProductContext } from '../../context/productProvider';
 import { currentUserSelector } from '../../redux/selectors';
-import { FAVOURITES, MY_PRODUCTS } from '../../utils/constants';
+import { FAVOURITES, HOME, MY_PRODUCTS } from '../../utils/constants';
 import ProductListItem from './ProductItem';
 
 const formatList = (list, userId, type) => {
   if (type === MY_PRODUCTS) {
     return list.filter((item) => item.userId === userId);
   } else if (type === FAVOURITES) {
-    return list;
+    return list.filter((item) => item.favourites.includes(userId));
   }
   return list.filter((item) => item.userId !== userId);
 };
 
-function ProductList({ type }) {
+function ProductList({ type = HOME }) {
   const { productList } = useContext(ProductContext);
   const { id: userId } = useSelector(currentUserSelector);
   return (
@@ -28,5 +29,9 @@ function ProductList({ type }) {
     </div>
   );
 }
+
+ProductList.propTypes = {
+  type: PropTypes.string,
+};
 
 export default ProductList;

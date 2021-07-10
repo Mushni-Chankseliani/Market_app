@@ -74,7 +74,7 @@ function SignInForm() {
           </span>
         )}
       </div>
-      <button className="btn btn-primary" type="submit">
+      <button className="btn btn-primary w-100" type="submit">
         Sign In
       </button>
     </form>

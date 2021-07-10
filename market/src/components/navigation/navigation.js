@@ -17,7 +17,7 @@ function Navigation() {
     await logOut();
 
     dispatch(setAuthGuestAction());
-    history.replace(routes.AUTH_PATH);
+    history.replace(routes.HOME_PATH);
   };
 
   return (
@@ -38,9 +38,20 @@ function Navigation() {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                to={routes.ADD_PRODUCT}
+                to={routes.MY_PRODUCTS_PATH}
                 activeClassName={css['active-class']}>
-                Add product
+                My products
+              </NavLink>
+            </li>
+          )}
+
+          {authorized && (
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to={routes.FAVOURITES_PATH}
+                activeClassName={css['active-class']}>
+                Favourites
               </NavLink>
             </li>
           )}

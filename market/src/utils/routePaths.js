@@ -1,5 +1,6 @@
 export const PROFILE_PATH = '/profile';
-export const ADD_PRODUCT = '/add-product';
+export const MY_PRODUCTS_PATH = '/my-products';
+export const FAVOURITES_PATH = '/favourites';
 export const HOME_PATH = '/';
 
 // auth

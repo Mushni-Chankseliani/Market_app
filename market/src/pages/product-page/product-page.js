@@ -1,6 +1,7 @@
 import AddProductForm from '../../components/forms/add-product-form';
 import ProductList from '../../components/products-list';
 import AddProductProviderComponent from '../../context';
+import { withAuthProtected } from '../../hoc';
 import { MY_PRODUCTS } from '../../utils/constants';
 
 function ProductPage() {
@@ -19,4 +20,4 @@ function ProductPage() {
     </AddProductProviderComponent>
   );
 }
-export default ProductPage;
+export default withAuthProtected(ProductPage);

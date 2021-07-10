@@ -82,7 +82,7 @@ function SignUpForm() {
           </span>
         )}
       </div>
-      <button className="btn btn-primary" type="submit">
+      <button className="btn btn-primary w-100" type="submit">
         Sign Up
       </button>
       {Boolean(errorMsg) && <p className="mt-3 text-danger">{errorMsg}</p>}
