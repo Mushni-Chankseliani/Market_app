@@ -21,7 +21,7 @@ function ProductList({ type = HOME }) {
   return (
     <div className="row row-cols-1 row-cols-md-2 g-4">
       {!formatList(productList, userId, type).length && (
-        <h4 className="text-warning">You Don&apos;t have Active Products :(</h4>
+        <h4 className="text-warning">There Is No Active Products :(</h4>
       )}
       {formatList(productList, userId, type).map((item, index) => (
         <ProductListItem item={item} key={index} />
