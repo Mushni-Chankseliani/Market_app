@@ -30,6 +30,10 @@ function ProductInnerPage() {
           <h4 className="text-muted">{currentItem.description}</h4>
         </div>
         <div className="mb-3 border-bottom pb-3">
+          <h3 className="mb-3">Price:</h3>
+          <h4 className="text-muted">{currentItem.price} ₾</h4>
+        </div>
+        <div className="mb-3 border-bottom pb-3">
           <h3 className="mb-3">Contact:</h3>
           <h4 className="text-muted">{author.email}</h4>
         </div>

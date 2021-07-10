@@ -65,6 +65,27 @@ function AddProductForm() {
       </div>
       <div className="form-floating mb-3">
         <input
+          type="number"
+          className="form-control"
+          id="price"
+          placeholder="price"
+          {...register('price', {
+            required: true,
+          })}
+        />
+        <label>Product price</label>
+        {(touchedFields.price || errors.price) && (
+          <span className="text-danger form-text">
+            {!errors.price ??
+              (errors.price.type === 'required' && 'price is required')}
+            {touchedFields.price &&
+              !getValues('price').length &&
+              'price is required'}
+          </span>
+        )}
+      </div>
+      <div className="form-floating mb-3">
+        <input
           type="text"
           className="form-control"
           id="image"
