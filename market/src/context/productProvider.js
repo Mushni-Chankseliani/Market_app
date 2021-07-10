@@ -31,12 +31,41 @@ function ProductProviderComponent({ children }) {
     dispatch(setProductsAction(newList));
   };
 
+  const addInFavourites = (productId, userId) => {
+    const findObj = productList.find((product) => product.id === productId);
+    const getIndex = productList.indexOf(findObj);
+    if (getIndex !== -1) {
+      const cloneProducts = [...productList];
+      cloneProducts[getIndex].favourites = [
+        ...cloneProducts[getIndex].favourites,
+        userId,
+      ];
+      setStorage(() => cloneProducts);
+      dispatch(setProductsAction(cloneProducts));
+    }
+  };
+
+  const removeFromFavourites = (productId, userId) => {
+    const findObj = productList.find((product) => product.id === productId);
+    const getIndex = productList.indexOf(findObj);
+    if (getIndex !== -1) {
+      const cloneProducts = [...productList];
+      cloneProducts[getIndex].favourites = cloneProducts[getIndex].favourites.filter(
+        (id) => id !== userId
+      );
+      setStorage(() => cloneProducts);
+      dispatch(setProductsAction(cloneProducts));
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
         productList,
         addProduct,
         removeProduct,
+        addInFavourites,
+        removeFromFavourites,
       }}>
       {children}
     </ProductContext.Provider>

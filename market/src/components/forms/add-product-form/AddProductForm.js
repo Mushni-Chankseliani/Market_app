@@ -22,68 +22,64 @@ function AddProductForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="title" className="form-label">
-          Product title
-        </label>
+      <div className="form-floating mb-3">
         <input
-          type="title"
+          type="text"
           className="form-control"
-          id="title"
+          placeholder="title"
           {...register('title', {
             required: true,
           })}
         />
+        <label>Product title</label>
         {(touchedFields.title || errors.title) && (
           <span className="text-danger form-text">
             {!errors.title ??
               (errors.title.type === 'required' && 'title is required')}
             {touchedFields.title &&
-              Boolean(getValues('title').length) &&
+              !getValues('title').length &&
               'title is required'}
           </span>
         )}
       </div>
-      <div>
-        <label htmlFor="description" className="form-label">
-          Product description
-        </label>
+      <div className="form-floating mb-3">
         <input
-          type="description"
+          type="text"
           className="form-control"
           id="description"
+          placeholder="description"
           {...register('description', {
             required: true,
           })}
         />
+        <label>Product description</label>
         {(touchedFields.description || errors.description) && (
           <span className="text-danger form-text">
             {!errors.description ??
               (errors.description.type === 'required' && 'description is required')}
             {touchedFields.description &&
-              Boolean(getValues('description').length) &&
+              !getValues('description').length &&
               'description is required'}
           </span>
         )}
       </div>
-      <div>
-        <label htmlFor="image" className="form-label">
-          Product image
-        </label>
+      <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
           id="image"
+          placeholder="image url"
           {...register('image', {
             required: true,
           })}
         />
+        <label>Product image</label>
         {(touchedFields.image || errors.image) && (
           <span className="text-danger form-text">
             {!errors.image ??
               (errors.image.type === 'required' && 'image is required')}
             {touchedFields.image &&
-              Boolean(getValues('image').length) &&
+              !getValues('image').length &&
               'image is required'}
           </span>
         )}
